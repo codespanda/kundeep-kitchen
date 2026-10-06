@@ -1,26 +1,44 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-cream: #fbf7f1;
+  --color-sand: #f2ece0;
+  --color-line: #ece3d4;
+  --color-forest: #2f4a1e;
+  --color-forest-dark: #23381a;
+  --color-forest-deep: #1f3115;
+  --color-clay: #c4571b;
+  --color-gold: #c9a35b;
+  --color-gold-light: #e2b868;
+  --color-ink: #2b2b2b;
+  --color-muted: #555555;
+  --color-parchment: #f3ead7;
+
+  --font-serif: var(--font-dm-serif), Georgia, serif;
+  --font-sans: var(--font-poppins), system-ui, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  /* keep anchor targets clear of the sticky header */
+  scroll-padding-top: 96px;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+
+/* Reservation popup */
+@keyframes reserve-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+}
+
+html:has(dialog[open]) {
+  overflow: hidden;
 }
