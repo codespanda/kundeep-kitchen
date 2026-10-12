@@ -24,15 +24,15 @@ const rupee = (n: number) => `₹${n.toLocaleString("en-IN")}`;
 
 function MenuRow({ item }: { item: MenuItem }) {
   return (
-    <li className="flex gap-4 border-b border-dashed border-[#e3dacb] py-5 last:border-b-0">
+    <li className="flex gap-3 border-b border-dashed border-[#e3dacb] py-5 sm:gap-4 last:border-b-0">
       {item.image && (
         <Image
           src={item.image}
           alt=""
           width={600}
           height={660}
-          sizes="88px"
-          className="size-[88px] shrink-0 rounded-lg object-cover"
+          sizes="(min-width: 640px) 88px, 64px"
+          className="size-16 shrink-0 rounded-lg object-cover sm:size-[88px]"
         />
       )}
       <div className="min-w-0 flex-1">
@@ -103,9 +103,11 @@ export default function MenuBrowser() {
     const update = () => {
       frame = 0;
       const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+      // A section counts as current once its top passes just below the sticky bars.
+      const barBottom = navRef.current?.parentElement?.getBoundingClientRect().bottom ?? 150;
       let current = sections[0].id;
       for (const s of sections) {
-        if (s.getBoundingClientRect().top <= 170) current = s.id;
+        if (s.getBoundingClientRect().top <= barBottom + 24) current = s.id;
       }
       setActive(atBottom ? sections[sections.length - 1].id : current);
     };
@@ -159,7 +161,7 @@ export default function MenuBrowser() {
   return (
     <div className="mx-auto w-full max-w-6xl px-4 pb-16 sm:px-8">
       {/* Category bar sits just under the sticky site header */}
-      <div className="sticky top-[82px] z-30 -mx-4 border-b border-line bg-cream/95 px-4 backdrop-blur sm:-mx-8 sm:px-8">
+      <div className="sticky top-[var(--header-h,82px)] z-30 -mx-4 border-b border-line bg-cream/95 px-4 backdrop-blur sm:-mx-8 sm:px-8">
         <div className="relative">
           {canScroll.left && (
             <div className="pointer-events-none absolute inset-y-0 left-0 z-10 flex w-20 items-center bg-gradient-to-r from-cream from-45% to-transparent">
@@ -280,7 +282,7 @@ export default function MenuBrowser() {
       ) : (
         <div className="mt-6 flex flex-col gap-12">
           {filtered.map((cat) => (
-            <section key={cat.id} id={cat.id} aria-labelledby={`${cat.id}-title`} className="scroll-mt-40">
+            <section key={cat.id} id={cat.id} aria-labelledby={`${cat.id}-title`} className="scroll-mt-[calc(var(--header-h,82px)+5rem)]">
               <header className="mb-2 flex flex-wrap items-end justify-between gap-2 border-b-2 border-forest/80 pb-3">
                 <div>
                   <h2 id={`${cat.id}-title`} className="font-serif text-[30px] leading-tight text-forest">

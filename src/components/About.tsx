@@ -7,7 +7,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="mx-auto grid w-full max-w-7xl items-center gap-12 px-4 py-14 sm:px-8 md:grid-cols-2 lg:grid-cols-[1.15fr_1fr_auto] lg:px-10"
+      className="mx-auto grid w-full max-w-7xl items-center gap-10 px-4 py-12 sm:py-14 lg:gap-12 sm:px-8 md:grid-cols-2 lg:grid-cols-[1.15fr_1fr_auto] lg:px-10"
     >
       <Image
         src="/images/about-interior.jpg"
@@ -43,7 +43,8 @@ export default function About() {
         </Button>
       </div>
 
-      <aside className="flex w-[190px] flex-col items-center gap-4.5 justify-self-center rounded-xl bg-sand px-5 py-10 text-center md:col-span-2 lg:col-span-1">
+      {/* A vertical card beside the text on desktop; a horizontal strip on phones and tablets */}
+      <aside className="flex w-full flex-col items-center gap-4 rounded-xl bg-sand px-5 py-8 text-center sm:flex-row sm:justify-center sm:gap-6 md:col-span-2 lg:col-span-1 lg:w-[190px] lg:flex-col lg:gap-4.5 lg:justify-self-center lg:py-10">
         <svg
           width="50"
           height="50"
@@ -61,9 +62,11 @@ export default function About() {
         </svg>
         <p className="font-serif text-[22px] leading-[1.4] text-forest">
           Good Food
-          <br />
+          <span className="hidden sm:inline lg:hidden"> · </span>
+          <br className="sm:hidden lg:inline" />
           Good Mood
-          <br />
+          <span className="hidden sm:inline lg:hidden"> · </span>
+          <br className="sm:hidden lg:inline" />
           Great Times!
         </p>
         <svg width="50" height="10" viewBox="0 0 50 10" fill="none" className="stroke-gold" strokeWidth="1.2" aria-hidden="true">

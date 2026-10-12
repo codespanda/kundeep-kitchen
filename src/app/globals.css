@@ -20,8 +20,8 @@
 
 html {
   scroll-behavior: smooth;
-  /* keep anchor targets clear of the sticky header */
-  scroll-padding-top: 96px;
+  /* keep anchor targets clear of the sticky header (height published by Header) */
+  scroll-padding-top: calc(var(--header-h, 82px) + 14px);
 }
 
 body {

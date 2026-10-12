@@ -14,7 +14,7 @@ export default function Specialties() {
         Signature Dishes You’ll Love
       </h2>
 
-      <ul className="grid w-full grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+      <ul className="grid w-full grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-6">
         {dishes.map((dish) => (
           <li
             key={dish.name}
@@ -26,10 +26,10 @@ export default function Specialties() {
               width={600}
               height={660}
               sizes="(min-width: 1024px) 200px, (min-width: 640px) 33vw, 50vw"
-              className="h-[205px] w-full object-cover"
+              className="aspect-square w-full object-cover"
             />
-            <div className="px-3.5 pt-4 pb-5">
-              <h3 className="mb-2.5 text-[15px] font-medium">{dish.name}</h3>
+            <div className="px-2.5 pt-3.5 pb-4 sm:px-3.5 sm:pt-4 sm:pb-5">
+              <h3 className="mb-2 text-sm font-medium sm:mb-2.5 sm:text-[15px]">{dish.name}</h3>
               <p className="text-xs leading-[1.7] text-muted">{dish.description}</p>
             </div>
           </li>

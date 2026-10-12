@@ -100,24 +100,29 @@ export function Emblem({ size = 68, className = "" }: { size?: number; className
 export function Logo({ variant = "light" }: { variant?: "light" | "dark" }) {
   const onDark = variant === "dark";
   return (
-    <Link href="/" className="flex items-center gap-3" aria-label="Kundeep Kitchen home">
-      <Emblem size={onDark ? 54 : 68} className="text-gold" />
-      <span className="flex flex-col leading-none">
+    <Link href="/" className="flex shrink-0 items-center gap-2.5 sm:gap-3" aria-label="Kundeep Kitchen home">
+      <Emblem
+        size={onDark ? 54 : 68}
+        className={`text-gold ${onDark ? "" : "size-[50px] sm:size-[68px]"}`}
+      />
+      <span className="flex flex-col leading-none whitespace-nowrap">
         <span
-          className={`font-serif ${onDark ? "text-[32px] text-parchment" : "text-[40px] text-forest"}`}
+          className={`font-serif ${
+            onDark ? "text-[32px] text-parchment" : "text-[30px] text-forest sm:text-[40px]"
+          }`}
         >
           Kundeep
         </span>
         <span
           className={`mt-1 tracking-[0.32em] ${
-            onDark ? "text-[13px] text-gold-light" : "text-[17px] text-clay"
+            onDark ? "text-[13px] text-gold-light" : "text-[13px] text-clay sm:text-[17px]"
           }`}
         >
           {onDark ? "KITCHEN" : "— KITCHEN —"}
         </span>
         <span
           className={`mt-1.5 tracking-[0.14em] ${
-            onDark ? "text-[9px] text-[#dcd6c6]" : "text-[11px] text-forest"
+            onDark ? "text-[10px] text-[#dcd6c6]" : "text-[10px] text-forest sm:text-[11px]"
           }`}
         >
           • PURE VEG, PURE LOVE •
