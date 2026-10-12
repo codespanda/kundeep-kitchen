@@ -103,6 +103,12 @@ The site is a static export (`output: "export"` in `next.config.ts`), so `npm ru
 
 **Other static hosts** (Netlify, Vercel, Cloudflare Pages, any web server) — run `npm run build` and upload the `out/` folder. Leave `PAGES_BASE_PATH` unset unless the site lives in a sub-folder.
 
+## License
+
+[MIT](LICENSE) — free to use for personal and commercial projects, including client work. Keep the copyright notice in the LICENSE file; no other attribution is required.
+
+The photos in `public/images/` are included for the demo. Check you have the rights to any images you publish, or replace them with your own.
+
 ## Credits
 
 Designed and built by [CodesPanda](https://codespanda.com). Browse more free templates at [codespanda.com/templates](https://codespanda.com/templates).
